@@ -614,6 +614,8 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
+color colorCorrect
+color colorIncorrect
 color colorPrimary
 color colorPrimaryDark
 color design_bottom_navigation_shadow_color
@@ -1125,6 +1127,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id correct
 id creatingDatabases
 id custom
 id customPanel
@@ -1168,6 +1171,7 @@ id ifRoom
 id image
 id imageView
 id imageView3
+id incorrect
 id info
 id invisible
 id italic

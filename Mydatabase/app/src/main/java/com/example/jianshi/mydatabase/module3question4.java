@@ -25,7 +25,10 @@ public class module3question4 extends android.support.v4.app.Fragment  {
     private RadioButton radioButton3;
     private RadioButton radioButton4;
     private RadioGroup radioGroup;
-    private ProgressBar progressBar;View view;
+    private ProgressBar progressBar;
+    private Button incorrect;
+    private Button correct;
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,8 +50,30 @@ public class module3question4 extends android.support.v4.app.Fragment  {
         radioButton4 = view.findViewById(R.id.radioButton4);
         radioButton4.setText("Select column1, column2 table ");
 
-        radioButton2 = view.findViewById(R.id.radioButton3);
-        radioButton2.setText("None of the above ");
+        radioButton3 = view.findViewById(R.id.radioButton3);
+        radioButton3.setText("None of the above ");
+        incorrect = view.findViewById(R.id.incorrect);
+        correct = view.findViewById(R.id.correct);
+        incorrect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new module3generalinfo());
+            }
+        });
+        incorrect.setVisibility(View.GONE);
+        correct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Nice Work!", Toast.LENGTH_SHORT).show();
+                //pops the backstack, not letting the user revisit their questions by pressing the back button as they have already completed the quiz
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+                    fm.popBackStack();
+                }
+                loadFragment(new Congratulations());
+            }
+        });
+        correct.setVisibility(View.GONE);
 
         //creates progress bar at 25%
         progressBar.setProgress(75);
@@ -102,14 +127,12 @@ public class module3question4 extends android.support.v4.app.Fragment  {
             radioButton = view.findViewById(selectedId);
             try {
                 if (radioButton.getText().toString().equals(answer)) {
-                    Toast.makeText(getContext(), "Nice Work!", Toast.LENGTH_SHORT).show();
-                    //pops the backstack, not letting the user revisit their questions by pressing the back button as they have already completed the quiz
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-                        fm.popBackStack();
-                    }
-                    loadFragment(new Congratulations());
+                    Toast.makeText(getContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    correct.setVisibility(view.VISIBLE);
+                    Checkbtn.setVisibility(view.GONE);
+                    incorrect.setVisibility(view.GONE);
                 } else {
+                    incorrect.setVisibility(view.VISIBLE);
                     Toast.makeText(getContext(), "Incorrect", Toast.LENGTH_SHORT).show();
                 }
             } catch (NullPointerException e) {

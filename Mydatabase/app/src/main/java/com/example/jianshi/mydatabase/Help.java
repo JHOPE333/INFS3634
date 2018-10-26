@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import static android.support.constraint.Constraints.TAG;
-
+//help page for how to use the app
 public class Help extends android.support.v4.app.Fragment {
     View view;
 

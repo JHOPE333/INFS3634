@@ -17,6 +17,7 @@ View view;
 
 // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.activity_module1_info, container, false);
+        //proceed to the next page
         nextBtn=view.findViewById(R.id.nextBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -29,6 +29,8 @@ public class question3 extends android.support.v4.app.Fragment {
     private RadioButton radioButton4;
     private RadioGroup radioGroup;
     private ProgressBar progressBar;
+    private Button incorrect;
+    private Button correct;
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +56,22 @@ public class question3 extends android.support.v4.app.Fragment {
 
         radioButton3 = view.findViewById(R.id.radioButton3);
         radioButton3.setText("Connection Exception");
-
+        incorrect = view.findViewById(R.id.incorrect);
+        correct = view.findViewById(R.id.correct);
+        incorrect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new module1Generalinfo());
+            }
+        });
+        incorrect.setVisibility(View.GONE);
+        correct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new question4());
+            }
+        });
+        correct.setVisibility(View.GONE);
         //creates progress bar at 25%
         progressBar.setProgress(50);
         percentTextView.setText(Integer.toString(progressBar.getProgress()) + "%");
@@ -131,8 +148,11 @@ public class question3 extends android.support.v4.app.Fragment {
             try {
                 if (radioButton.getText().toString().equals(answer)) {
                     Toast.makeText(getContext(), "Correct", Toast.LENGTH_SHORT).show();
-                    loadFragment(new question4());
+                    correct.setVisibility(view.VISIBLE);
+                    Checkbtn.setVisibility(view.GONE);
+                    incorrect.setVisibility(view.GONE);
                 } else {
+                    incorrect.setVisibility(view.VISIBLE);
                     Toast.makeText(getContext(), "Incorrect", Toast.LENGTH_SHORT).show();
                 }
             } catch (NullPointerException e) {

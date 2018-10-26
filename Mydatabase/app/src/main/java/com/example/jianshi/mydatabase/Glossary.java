@@ -45,7 +45,7 @@ public class Glossary extends android.support.v4.app.Fragment  {
                 {" SELECT", " Retrieves certain records from one or more tables"}
         };
         //use of arraylist - hashmap of type string,string to store the two things we want to display.
-        //only 0, and 1 are used for the second dimension as only two things are displayed
+        //only 0, and 1 are used for the second dimension as only two attributes are displayed
         ArrayList<HashMap<String,String>> itemlist = new ArrayList<HashMap<String,String>>();
         HashMap<String,String> sorter;
         for(int i=0; i<definitions.length; i++){

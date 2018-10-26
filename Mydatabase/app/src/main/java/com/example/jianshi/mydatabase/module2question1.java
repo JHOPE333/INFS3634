@@ -25,6 +25,8 @@ public class module2question1 extends android.support.v4.app.Fragment {
     private RadioButton radioButton4;
     private RadioGroup radioGroup;
     private ProgressBar progressBar;
+    private Button incorrect;
+    private Button correct;
 
     View view;
     @Override
@@ -42,15 +44,30 @@ public class module2question1 extends android.support.v4.app.Fragment {
         radioButton1 = view.findViewById(R.id.radioButton1);
         radioButton1.setText("Query statement ");
 
-        radioButton2 = view.findViewById(R.id.radioButton2);
-        radioButton2.setText("None of the above ");
+        radioButton3 = view.findViewById(R.id.radioButton2);
+        radioButton3.setText("None of these ");
 
         radioButton4 = view.findViewById(R.id.radioButton4);
         radioButton4.setText("Invoked statement");
 
         radioButton2 = view.findViewById(R.id.radioButton3);
         radioButton2.setText("Prepared statement ");
-
+        incorrect = view.findViewById(R.id.incorrect);
+        correct = view.findViewById(R.id.correct);
+        incorrect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new module2Generalinfo());
+            }
+        });
+        incorrect.setVisibility(View.GONE);
+        correct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new module2question2());
+            }
+        });
+        correct.setVisibility(View.GONE);
         //creates progress bar at 25%
         progressBar.setProgress(0);
         percentTextView.setText(Integer.toString(progressBar.getProgress()) + "%");
@@ -103,8 +120,11 @@ public class module2question1 extends android.support.v4.app.Fragment {
             try {
                 if (radioButton.getText().toString().equals(answer)) {
                     Toast.makeText(getContext(), "Correct", Toast.LENGTH_SHORT).show();
-                    loadFragment(new module2question2());
+                    correct.setVisibility(view.VISIBLE);
+                    Checkbtn.setVisibility(view.GONE);
+                    incorrect.setVisibility(view.GONE);
                 } else {
+                    incorrect.setVisibility(view.VISIBLE);
                     Toast.makeText(getContext(), "Incorrect", Toast.LENGTH_SHORT).show();
                 }
             } catch (NullPointerException e) {

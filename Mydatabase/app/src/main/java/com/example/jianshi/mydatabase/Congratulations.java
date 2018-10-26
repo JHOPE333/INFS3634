@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
+//this class is shown when user finishes a module
 public class Congratulations extends android.support.v4.app.Fragment {
     View view;
     Button home;

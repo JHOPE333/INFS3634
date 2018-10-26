@@ -28,6 +28,8 @@ public class question2 extends android.support.v4.app.Fragment  {
     private RadioButton radioButton4;
     private RadioGroup radioGroup;
     private ProgressBar progressBar;
+    private Button incorrect;
+    private Button correct;
 
     View view;
     @Override
@@ -51,8 +53,24 @@ public class question2 extends android.support.v4.app.Fragment  {
         radioButton4 = view.findViewById(R.id.radioButton4);
         radioButton4.setText("Allows quicker connection to the database ");
 
-        radioButton2 = view.findViewById(R.id.radioButton2);
-        radioButton2.setText("None of the Above ");
+        radioButton3 = view.findViewById(R.id.radioButton2);
+        radioButton3.setText("None of the Above ");
+        incorrect = view.findViewById(R.id.incorrect);
+        correct = view.findViewById(R.id.correct);
+        incorrect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new module1Generalinfo());
+            }
+        });
+        incorrect.setVisibility(View.GONE);
+        correct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(new question3());
+            }
+        });
+        correct.setVisibility(View.GONE);
 
         //creates progress bar at 25%
         progressBar.setProgress(25);
@@ -102,11 +120,13 @@ public class question2 extends android.support.v4.app.Fragment  {
         protected void onPostExecute(String answer) {
             int selectedId = radioGroup.getCheckedRadioButtonId();
             radioButton = view.findViewById(selectedId);
-            if(radioButton.getText().toString().equals(answer)) {
+            if (radioButton.getText().toString().equals(answer)) {
                 Toast.makeText(getContext(), "Correct", Toast.LENGTH_SHORT).show();
-                loadFragment(new question3());
-            }
-            else {
+                correct.setVisibility(view.VISIBLE);
+                Checkbtn.setVisibility(view.GONE);
+                incorrect.setVisibility(view.GONE);
+            } else {
+                incorrect.setVisibility(view.VISIBLE);
                 Toast.makeText(getContext(), "Incorrect", Toast.LENGTH_SHORT).show();
             }
 
