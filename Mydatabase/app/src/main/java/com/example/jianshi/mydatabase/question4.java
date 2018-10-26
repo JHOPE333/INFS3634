@@ -103,7 +103,7 @@ public class question4 extends android.support.v4.app.Fragment  {
             if(integers.length == 0) {
                 cancel(true);
             }
-            return QuestionDatabase.db.userDao().setAnswer(integers[0]);
+            return QuestionDatabase.db.userDao().loadAllbyIds(integers[0]);
 
 
 
