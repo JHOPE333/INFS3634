@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <Button
+        android:id="@+id/Module1btn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="340dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/databases_intro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="110dp"
+        tools:layout_width="150dp" />
+
+    <Button
+        android:id="@+id/Module2btn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginStart="216dp"
+        android:background="@drawable/creating_databases"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="150dp"
+        tools:layout_width="150dp" />
+
+
+    <Button
+        android:id="@+id/Module3btn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/databases_queries"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

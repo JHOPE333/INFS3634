@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">EasyDBLearning</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_glossary_updated">GlossaryUpdated</string>
+    <string name="title_activity_question1">Question1</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="action_example">Example action</string>
+    <!--  video IDS for databases  -->
+    <string name="database_vid">2i4t-SL1VsU</string>
+    <string name="database_desc">A database table is populated by inserting data via statements. Statements in Java represent sql statements with two types; normal and prepared. A normal statement excludes sql statements without parameters with an example of one being: statement = conn.createStatement(); statement.execute("INSERT INTO DRIVER VALUES ('BOB',1234,'TQT765' );"); where the DRIVER table is inserted with new values to each of its columns. A prepared statement instead takes parameters and is used to execute the same statement repeatedly with high efficiency. An example of one is: Prepstmt=con.prepareStatement("insert into Emp values(?,?)"); Prepstmt.setDatatype(column number, value); prepstmt .execute(); An standard insert query in SQL looks like: Insert into tableName Values () and a standard table query is: Create table tableName (Column name, datatype)
+</string>
+    <string name="queries_vid">4H3AGK_hNMA</string>
+    <string name="queries_desc">A query is a request for data or information from a database table and require a statement and resultset to execute. It is executed via executeQuery, and the resultset stores the data retrieved from the select query. For example:  Resultset  = DataBase.statement.executeQuery("SELECT NAME,LICENSE_NO ,CAR_PLATE FROM DRIVER;");
+</string>
+    <string name="start_vid">BCqW5XwtJxY</string>
+    <string name="start_desc">A database is a structured set of data that is stored and accessed electronically. This data is typically stored into relations and accessed by connecting to the database and issuing a SQL query. The typical process of accessing a database involves a client application connecting to a database, sending an SQL query to retrieve information from the database and finally the JDBC driver translating the query to a format that the database can read.
+To create one in Java, the sqlite library must first be imported to the client. JDBC drivers such as sqlite translate queries into a format compatible with databases. A connection to the database is established with conn = DriverManager.getConnection("jdbc:sqlite:DBName.db"); This should be put in a try catch statement to catch any SQL exceptions. The connection itself can be closed to free up any database resources the connection is holding via Conn.close
+</string>
+    <string name="help_content">Welcome to EasyDBLearning. This app is designed to help you learn databases, with various multiple choice questions that are grouped by modules for you to do. A glossary and links to a couple of helpful youtube videos are also provided as additional resources to supplement your learning</string>
+</resources>
